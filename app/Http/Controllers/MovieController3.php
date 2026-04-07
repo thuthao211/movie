@@ -42,9 +42,10 @@ class MovieController3 extends Controller
 
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $filename = time() . '_' . $request->image->getClientOriginalName();
-            $request->image->storeAs('public', $filename);
-            $imagePath = '/' . $filename;
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(storage_path('app/public'), $filename);          
+            $imagePath = $filename;
         }
 
         $newId = Movie::max('id') + 1;

@@ -38,7 +38,7 @@
                     <td>{{ $movie->vote_average }}</td>
                     
                     <td style="min-width: 110px;">
-                        <a href="/chitiet" class="btn btn-primary btn-sm">Xem</a>
+                        <a  href="{{ url('/chitiet/'.$movie->id) }}" class="btn btn-primary btn-sm">Xem</a>
                         <a href="{{ route('delete', $movie->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Xác nhận xóa?');">Xóa</a>
                     </td>
                 </tr>
